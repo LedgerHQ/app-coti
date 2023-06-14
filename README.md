@@ -1,15 +1,24 @@
 # COTI Ledger App
 
+[![GitHub Stars](https://img.shields.io/github/stars/coti-io/coti-ledger.svg)](https://github.com/coti-io/coti-ledger/stargazers)
+[![GitHub Issues](https://img.shields.io/github/issues/coti-io/coti-ledger.svg)](https://github.com/coti-io/coti-ledger/issues)
+[![Current Version](https://img.shields.io/badge/version-1.1.0-yellow.svg)](https://github.com/coti-io/coti-ledger/)
+[![GitHub CI](https://github.com/coti-io/coti-ledger/actions/workflows/ci-workflow.yml/badge.svg)](https://github.com/coti-io/coti-ledger/actions/workflows/ci-workflow.yml)
+[![GitHub Lint](https://github.com/coti-io/coti-ledger/actions/workflows/lint-workflow.yml/badge.svg)](https://github.com/coti-io/coti-ledger/actions/workflows/lint-workflow.yml)
+[![GitHub Coverity Scan](https://github.com/coti-io/coti-ledger/actions/workflows/coverity-scan-workflow.yml/badge.svg)](https://github.com/coti-io/coti-ledger/actions/workflows/coverity-scan-workflow.yml)
+[![Coverity](https://scan.coverity.com/projects/25249/badge.svg)](https://scan.coverity.com/projects/coti-io-coti-ledger)
+[![Discord Server](https://img.shields.io/discord/386571547508473876.svg)](https://discord.me/coti)
+
 ## Overview
 
-This is the Ledger Nano S COTI app.
+This is the Ledger Nano S/S+/X COTI app.
 
 ## Building and Installing
 
-Make sure that Docker is installed and build the `ledger-app-builder:2.0.0-1` container image:
+Make sure that Docker is installed and build the `ledger-app-builder:2.1.0` container image:
 
 ```bash
-$ docker build -t ledger-app-builder:2.0.0-1 .
+$ docker build -t ledger-app-builder:2.1.0 .
 ```
 
 Make sure to install `coreutils` to have the `realpath` command available:
@@ -21,7 +30,7 @@ $ brew install coreutils
 Compile the app:
 
 ```bash
-$ docker run --rm -ti -v "$(realpath .):/coti" ledger-app-builder:2.0.0-1
+$ docker run --rm -ti -v "$(realpath .):/coti" ledger-app-builder:2.1.0
 root@d83f688268b3:/coti# cd app
 root@d83f688268b3:/coti/app# make
 ```
@@ -35,7 +44,8 @@ root@d83f688268b3:/coti/app# exit
 
 ## Installing the Application
 
-In order to install/uninstall the application, you need to install the `ledgerblue` python module and additional dependencies:
+In order to install/uninstall the application, you need to install the `ledgerblue` python module and additional
+dependencies:
 
 ```bash
 $ xcode-select --install

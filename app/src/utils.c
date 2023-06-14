@@ -1,7 +1,7 @@
 /*******************************************************************************
  *   Ledger App Coti
  *   (c) 2017 Ledger
- *   (c) 2020 Tchain Ltd. adaptation for COTI
+ *   (c) 2022 Tchain Ltd. adaptation for COTI
  *
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
@@ -17,17 +17,18 @@
  ********************************************************************************/
 
 #include <stdint.h>
-#include <string.h>
 
-static const unsigned char hex_digits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+static const unsigned char hexDigits[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
-void array_hexstr(char *strbuf, const void *bin, unsigned int len)
+void arrayHexstr(char *strBuf, const void *bin, const uint32_t len)
 {
-    while (len--)
+    uint32_t strLength = len;
+    while (strLength != 0)
     {
-        *strbuf++ = hex_digits[((*((char *)bin)) >> 4) & 0xF];
-        *strbuf++ = hex_digits[(*((char *)bin)) & 0xF];
+        *strBuf++ = hexDigits[((*((char *)bin)) >> 4) & 0xF];
+        *strBuf++ = hexDigits[(*((char *)bin)) & 0xF];
         bin = (const void *)((unsigned int)bin + 1);
+        --strLength;
     }
-    *strbuf = 0;
+    *strBuf = 0;
 }
